@@ -133,6 +133,22 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
+    'vendor/lib64/libqms_client.so': blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'vendor/lib64/libqcc_sdk.so': blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'vendor/lib64/libcne.so': blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'vendor/bin/xtra-daemon': blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'vendor/bin/qms': blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'vendor/bin/qcc-vendor': blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
+        .add_needed('libbinder_shim.so'),
+    'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .add_needed('libaudioclient_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
