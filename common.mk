@@ -297,7 +297,8 @@ PRODUCT_COPY_FILES += \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(COMMON_PATH) \
+    (COMMON_PATH) \
+    hardware/qcom-caf/bootctrl \
     vendor/qcom/opensource/usb/etc
 
 # Thermal
