@@ -97,6 +97,9 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# Blur
+TARGET_ENABLE_BLUR := true
+
 # Camera
 $(call soong_config_set,camera,override_format_from_reserved,true)
 
