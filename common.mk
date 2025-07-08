@@ -148,12 +148,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.lineage
 
-# Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
-$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/battery_charging_enabled)
-
 # Linker config
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(COMMON_PATH)/linker.config.json
@@ -258,6 +252,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2023-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
+# Platform
+TARGET_BOARD_PLATFORM := pineapple
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
@@ -297,7 +294,7 @@ PRODUCT_COPY_FILES += \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    (COMMON_PATH) \
+    $(COMMON_PATH) \
     hardware/qcom-caf/bootctrl \
     vendor/qcom/opensource/usb/etc
 

@@ -68,7 +68,7 @@ TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.caza
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml \
+    vendor/yaap/config/device_framework_matrix.xml \
     $(COMMON_PATH)/device_framework_matrix.xml
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := \
@@ -157,7 +157,7 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/mm-sys-kernel/ubwcp
 
 # Partitions
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/yaap/config/BoardConfigReservedSize.mk
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
