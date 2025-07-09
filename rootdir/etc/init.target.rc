@@ -104,12 +104,15 @@ on early-boot
     verity_update_state
 
 on boot
+    # cpuset configuration
     write /dev/cpuset/audio-app/cpus 0-1
-    # Add a cpuset for the camera daemon
-    # We want all cores for camera
-    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/camera-daemon/cpus 0-7
     write /dev/cpuset/camera-daemon/mems 0
+    write /dev/cpuset/display/cpus 2-4
+    write /dev/cpuset/foreground/cpus 0-4
+    write /dev/cpuset/system-background/cpus 0-1
+    write /dev/cpuset/top-app/cpus 0-7
     chown cameraserver cameraserver /dev/cpuset/camera-daemon
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
@@ -219,6 +222,43 @@ on property:sys.temp.level=0
     write /sys/class/thermal/cooling_device31/cur_state 28
     write /sys/class/thermal/cooling_device42/cur_state 10
 
+on property:vendor.post_boot.parsed=1
+    # Uclamp tunings
+    setprop kernel.sched_util_clamp_min_rt_default 0
+    write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
+    write /proc/sys/kernel/sched_util_clamp_min 128
+
+    #top-app
+    write /dev/cpuctl/top-app/cpu.uclamp.max max
+    write /dev/cpuctl/top-app/cpu.uclamp.min 0
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 0
+
+    #foreground
+    write /dev/cpuctl/foreground/cpu.uclamp.max 80
+    write /dev/cpuctl/foreground/cpu.uclamp.min 0
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
+
+    #background
+    write /dev/cpuctl/background/cpu.uclamp.max max
+    write /dev/cpuctl/background/cpu.uclamp.min 20
+    write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
+
+    #system-background
+    write /dev/cpuctl/system-background/cpu.uclamp.max 40
+    write /dev/cpuctl/system-background/cpu.uclamp.min 0
+    write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
+
+    #nnapi-hal
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 75
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
+
+    #camera-daemon
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 50
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
+
 on property:sys.boot_completed=1
      # Enable PowerHAL hint processing
      setprop vendor.powerhal.init 1
+
