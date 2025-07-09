@@ -35,3 +35,7 @@ genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qco
 # QCOM LPM
 genfscon sysfs /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled u:object_r:sysfs_lpm:s0
 genfscon sysfs /sys/devices/system/cpu/qcom_lpm/parameters/prediction_disabled u:object_r:sysfs_lpm:s0
+
+# KProfiles
+genfscon sysfs /module/kprofiles/parameters/auto_kprofiles u:object_r:sysfs_kprofiles:s0
+genfscon sysfs /module/kprofiles/parameters/kp_mode u:object_r:sysfs_kprofiles:s0

@@ -1,2 +1,5 @@
 # DisplayFeatures
 allow init sysfs_displayfeatures:file { setattr };
+
+# Allow init to set attribute to sysfs_kprofiles
+allow init sysfs_kprofiles:file { setattr };
