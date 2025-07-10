@@ -280,6 +280,10 @@ PRODUCT_PACKAGES += \
     fstab.qcom.vendor_ramdisk
 
 PRODUCT_PACKAGES += \
+    init.qti.kernel.sh \
+    init.qcom.post_boot.sh \
+    init.kernel.post_boot.sh \
+    init.kernel.post_boot-pineapple.sh \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.target.rc \
