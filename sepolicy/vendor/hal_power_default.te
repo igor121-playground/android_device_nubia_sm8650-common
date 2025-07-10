@@ -1,0 +1,3 @@
+# /sys/devices/system/cpu/qcom_lpm/parameters/(sleep_disabled|prediction_disabled)
+allow hal_power_default sysfs_lpm:file rw_file_perms;
+
