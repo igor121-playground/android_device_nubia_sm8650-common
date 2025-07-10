@@ -37,3 +37,31 @@ prebuilt_etc {
     src: "etc/ueventd.qcom.rc",
     vendor: true,
 }
+
+prebuilt_etc {
+    name: "init.kernel.post_boot-pineapple.sh",
+    filename: "init.kernel.post_boot-pineapple.sh",
+    src: "bin/init.kernel.post_boot-pineapple.sh",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.kernel.post_boot.sh",
+    filename: "init.kernel.post_boot.sh",
+    src: "bin/init.kernel.post_boot.sh",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.qcom.post_boot.sh",
+    filename: "init.qcom.post_boot.sh",
+    src: "bin/init.qcom.post_boot.sh",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.qti.kernel.sh",
+    filename: "init.qti.kernel.sh",
+    src: "bin/init.qti.kernel.sh",
+    vendor: true,
+}
