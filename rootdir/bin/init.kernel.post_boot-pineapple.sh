@@ -152,26 +152,26 @@ if [ -d /proc/sys/walt ]; then
 	else
 		echo 1248000 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 	fi
-	echo 100 > /proc/sys/walt/input_boost/input_boost_ms
+	echo 200 > /proc/sys/walt/input_boost/input_boost_ms
 
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy2/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy5/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy2/walt/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy2/walt/up_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy5/walt/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy5/walt/up_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/walt/up_rate_limit_us
+	echo 1000 > /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
+	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us
+	echo 1000 > /sys/devices/system/cpu/cpufreq/policy2/walt/down_rate_limit_us
+	echo 500 > /sys/devices/system/cpu/cpufreq/policy2/walt/up_rate_limit_us
+	echo 1000 > /sys/devices/system/cpu/cpufreq/policy5/walt/down_rate_limit_us
+	echo 500 > /sys/devices/system/cpu/cpufreq/policy5/walt/up_rate_limit_us
+	echo 1000 > /sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us
+	echo 500 > /sys/devices/system/cpu/cpufreq/policy7/walt/up_rate_limit_us
 
-	echo 1 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
-	echo 1 > /sys/devices/system/cpu/cpufreq/policy2/walt/pl
-	echo 1 > /sys/devices/system/cpu/cpufreq/policy5/walt/pl
-	echo 1 > /sys/devices/system/cpu/cpufreq/policy7/walt/pl
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy2/walt/pl
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy5/walt/pl
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/walt/pl
 
 	echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 	echo 844800 > /sys/devices/system/cpu/cpufreq/policy2/walt/rtg_boost_freq
@@ -209,13 +209,52 @@ else
 	echo 672000 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 fi
 
+# Setup cpu.shares to throttle background groups (dex2oat - 2.5% bg ~ 5% sysbg ~ 50% foreground ~ 60%).
+echo "1024" > /dev/cpuctl/background/cpu.shares
+echo "10240" > /dev/cpuctl/system-background/cpu.shares
+echo "512" > /dev/cpuctl/dex2oat/cpu.shares
+echo "16384" > /dev/cpuctl/foreground/cpu.shares
+echo "20480" > /dev/cpuctl/system/cpu.shares
+
+# We only have /dev/cpuctl/system/cpu.shares system and background groups holding tasks and the groups below are empty.
+echo "20480" > /dev/cpuctl/camera-daemon/cpu.shares
+echo "20480" > /dev/cpuctl/nnapi-hal/cpu.shares
+echo "20480" > /dev/cpuctl/rt/cpu.shares
+echo "20480" > /dev/cpuctl/top-app/cpu.shares
+
+
+# Decrease pelt multiplier to 2 (16ms halflife), to improve power consumption, walt is already quick enough.
+echo "2" > /proc/sys/kernel/sched_pelt_multiplier
+
+# Reduce vm stat interval to reduce jitter.
+echo "20" > /proc/sys/vm/stat_interval
+
+# Tune dirty data writebacks.
+echo "52428800" > /proc/sys/vm/dirty_background_bytes
+echo "209715200" > /proc/sys/vm/dirty_bytes
+
+# Disable page cluster.
+echo "0" > /proc/sys/vm/page-cluster
+
+# Disable transparent hugepage.
+echo "0" > /sys/kernel/mm/transparent_hugepage/khugepaged/defrag
+echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
+echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
+echo "never" > /sys/kernel/mm/transparent_hugepage/shmem_enabled
+echo "0" > /sys/kernel/mm/transparent_hugepage/use_zero_page
+
+# Set compact_unevictable_allowed to 0 in order to avoid potential stalls that can occur during compactions of unevictable pages, preempt_rt sets it to 0.
+echo "0" > /proc/sys/vm/compact_unevictable_allowed
+
+# Set compaction_proactiveness to 0 in order to reduce cpu latency spikes.
+echo "0" > /proc/sys/vm/compaction_proactiveness
+
+# Disable oom dump tasks its not desirable for android where we have numerious tasks.
+echo "0" > /proc/sys/vm/oom_dump_tasks
+
+
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
-
-# cpuset parameters
-echo 0-1 5-6 > /dev/cpuset/background/cpus
-echo 0-1 5-6 > /dev/cpuset/system-background/cpus
-
 
 # configure bus-dcvs
 bus_dcvs="/sys/devices/system/cpu/bus_dcvs"
