@@ -17,3 +17,8 @@ genfscon sysfs /devices/platform/soc/soc:charger_policy_service/wakeup u:object_
 genfscon sysfs /devices/platform/soc/soc:gpio_keys_nubia/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/zte_power_supply/zte_battery/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/zte_power_supply/zte_usb/wakeup u:object_r:sysfs_wakeup:s0
+
+# QCOM LPM
+genfscon sysfs /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled u:object_r:sysfs_lpm:s0
+genfscon sysfs /sys/devices/system/cpu/qcom_lpm/parameters/prediction_disabled u:object_r:sysfs_lpm:s0
+
