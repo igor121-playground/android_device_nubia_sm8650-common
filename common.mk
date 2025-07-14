@@ -314,6 +314,9 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
+
 # Touchscreen
 PRODUCT_PACKAGES += \
     TouchscreenRotation
