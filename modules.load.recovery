@@ -117,7 +117,6 @@ msm_gpi.ko
 msm_hw_fence.ko
 msm_lmh_dcvs.ko
 msm_memshare.ko
-msm_performance.ko
 msm_qmp.ko
 msm_sharedmem.ko
 msm_show_epoch.ko
