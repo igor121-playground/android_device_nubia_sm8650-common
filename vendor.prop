@@ -207,6 +207,10 @@ ro.opengles.version=196610
 vendor.gralloc.disable_ubwc=0
 vendor.gralloc.enable_logs=0
 
+# HWUI
+debug.hwui.use_hint_manager=true
+debug.hwui.target_cpu_time_percent=10
+
 # Incremental FS
 ro.incremental.enable=true
 
