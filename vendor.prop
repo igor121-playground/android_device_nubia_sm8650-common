@@ -252,6 +252,9 @@ persist.vendor.radio.testTimerB=30
 persist.vendor.radio.voice_on_lte=1
 ro.telephony.default_network=33,33
 
+# Sensors
+persist.vendor.sensors.enable.mag_filter=true
+
 # SoC
 ro.soc.manufacturer=QTI
 
