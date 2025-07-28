@@ -45,6 +45,11 @@ sched_rt_period_us=`expr $sched_rt_period_ms \* 1000`
 echo $sched_rt_period_us > /proc/sys/kernel/sched_rt_period_us
 echo $sched_rt_runtime_us > /proc/sys/kernel/sched_rt_runtime_us
 
+	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy2/scaling_governor
+	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy5/scaling_governor
+	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
+
 if [ $rev == "1.0" ] || [ $rev == "1.1" ]; then
 	echo 556800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 	echo 576000 > /sys/devices/system/cpu/cpufreq/policy2/scaling_min_freq
