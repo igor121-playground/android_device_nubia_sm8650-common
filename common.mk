@@ -308,7 +308,9 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/qcom-caf/bootctrl \
     hardware/qcom-caf/common/libqti-perfd-client \
-    vendor/qcom/opensource/usb/etc
+    vendor/qcom/opensource/usb/etc \
+    kernel/nubia/sm8650 \
+    kernel/nubia/sm8650-modules
 
 # Task Profiles
 PRODUCT_COPY_FILES += \
