@@ -102,6 +102,7 @@ TARGET_ENABLE_BLUR := true
 
 # Camera
 $(call soong_config_set,camera,override_format_from_reserved,true)
+$(call soong_config_set,libcameraservice,ext_lib,//$(COMMON_PATH):libcameraservice_extension.nubia_sm8650)
 
 # Display
 PRODUCT_PACKAGES += \
