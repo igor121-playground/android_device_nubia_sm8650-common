@@ -70,10 +70,6 @@ echo "20480" > /dev/cpuctl/nnapi-hal/cpu.shares
 echo "20480" > /dev/cpuctl/rt/cpu.shares
 echo "20480" > /dev/cpuctl/top-app/cpu.shares
 
-
-# Decrease pelt multiplier to 2 (16ms halflife), to improve power consumption, walt is already quick enough.
-echo "2" > /proc/sys/kernel/sched_pelt_multiplier
-
 # Reduce vm stat interval to reduce jitter.
 echo "20" > /proc/sys/vm/stat_interval
 
@@ -84,13 +80,6 @@ echo "209715200" > /proc/sys/vm/dirty_bytes
 # Disable page cluster.
 echo "0" > /proc/sys/vm/page-cluster
 
-# Disable transparent hugepage.
-echo "0" > /sys/kernel/mm/transparent_hugepage/khugepaged/defrag
-echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
-echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
-echo "never" > /sys/kernel/mm/transparent_hugepage/shmem_enabled
-echo "0" > /sys/kernel/mm/transparent_hugepage/use_zero_page
-
 # Set compact_unevictable_allowed to 0 in order to avoid potential stalls that can occur during compactions of unevictable pages, preempt_rt sets it to 0.
 echo "0" > /proc/sys/vm/compact_unevictable_allowed
 
@@ -99,7 +88,6 @@ echo "0" > /proc/sys/vm/compaction_proactiveness
 
 # Disable oom dump tasks its not desirable for android where we have numerious tasks.
 echo "0" > /proc/sys/vm/oom_dump_tasks
-
 
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
