@@ -52,10 +52,22 @@
     <bool name="config_statusBarBurnInProtection">true</bool>
     
     <!-- The padding on the start of the statusbar -->
-    <dimen name="status_bar_padding_start">20px</dimen>
+    <dimen name="status_bar_padding_start">25px</dimen>
 
     <!-- The padding on the end of the statusbar -->
     <dimen name="status_bar_padding_end">0px</dimen>
+
+    <!-- paddings for container with status icons and battery -->
+    <!-- padding start is a bit smaller than end to account for status icon margin-->
+    <dimen name="status_bar_icons_padding_start">3dp</dimen>
+
+    <dimen name="status_bar_icons_padding_end">4dp</dimen>
+
+    <!-- the radius of the overflow dot in the status bar -->
+    <dimen name="overflow_dot_radius">2sp</dimen>
+
+    <!-- the padding between dots in the icon overflow -->
+    <dimen name="overflow_icon_dot_padding">3sp</dimen>
 
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">false</bool>
