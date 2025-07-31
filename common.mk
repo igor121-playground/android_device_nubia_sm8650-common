@@ -117,6 +117,12 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.sh \
     libgpu_tonemapper
 
+
+# DisplayFeatures
+PRODUCT_PACKAGES += \
+    DisplayFeatures \
+    DisplayFeaturesNubia
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
