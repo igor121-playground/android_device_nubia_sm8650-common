@@ -1,0 +1,2 @@
+# DisplayFeatures
+allow init sysfs_displayfeatures:file { setattr };
