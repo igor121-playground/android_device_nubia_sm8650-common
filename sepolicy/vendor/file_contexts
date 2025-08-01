@@ -15,6 +15,10 @@
 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui           u:object_r:vendor_sysfs_fingerprint:s0
 /mnt/vendor/persist/fingerprint(/.*)?                                   u:object_r:vendor_persist_fingerprint_file:s0
 
+# IR HAL
+/dev/lirc0                                                            u:object_r:lirc_device:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.ir-service\.nubia   u:object_r:hal_ir_default_exec:s0
+
 # NFC
 /vendor/bin/hw/android\.hardware\.nfc-service\.st                 u:object_r:hal_nfc_default_exec:s0
 
