@@ -29,5 +29,8 @@ persist.vendor.data.mode=concurrent
 ril.subscription.types=NV,RUIM
 telephony.active_modems.max_count=2
 
+# Thermal
+vendor.thermal.config=thermal_info_config.json
+
 # WFD
 persist.debug.wfd.enable=1

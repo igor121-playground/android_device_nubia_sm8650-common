@@ -1761,9 +1761,9 @@ vendor/bin/tftp_server
 vendor/etc/init/vendor.qti.tftp.rc
 
 # Thermal engine
-vendor/bin/thermal-engine-v2
-vendor/etc/init/init_thermal-engine-v2.rc
-vendor/lib64/liblmthermallistner.so
+#vendor/bin/thermal-engine-v2
+#vendor/etc/init/init_thermal-engine-v2.rc
+#vendor/lib64/liblmthermallistner.so
 vendor/lib64/libthermalclient.so
 
 # Time services

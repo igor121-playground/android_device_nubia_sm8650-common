@@ -27,3 +27,7 @@
 
 # Secure Element
 /vendor/bin/hw/android\.hardware\.secure_element-service-aidl     u:object_r:hal_secure_element_default_exec:s0
+
+# Thermal
+/vendor/bin/hw/android\.hardware\.thermal-service\.pixel                                            u:object_r:hal_thermal_default_exec:s0
+
