@@ -580,4 +580,12 @@
 
     <!-- disable Pocket Lock -->
     <bool name="config_pocketModeSupported">false</bool>
+
+    <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
+    <integer-array name="config_availableColorModes">
+        <item>258</item>
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+    </integer-array>
 </resources>
