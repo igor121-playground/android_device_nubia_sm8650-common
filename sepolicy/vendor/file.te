@@ -1,5 +1,10 @@
-type vendor_persist_fingerprint_file, file_type;
+# Camera
 type vendor_persist_laser_file, file_type;
+
+# Fingerprint
+type vendor_persist_fingerprint_file, file_type;
+
+# Touchscreen
 type vendor_sysfs_touchpanel, fs_type, sysfs_type;
 type sysfs_lpm, sysfs_type, fs_type;
 type sysfs_torch, fs_type, sysfs_type;
