@@ -5,5 +5,6 @@ vendor.thermal.              u:object_r:vendor_thermal_prop:s0
 vendor.ir.carrier_freqs      u:object_r:vendor_ir_prop:s0
 
 # ZTE
+ro.vendor.mifavor.           u:object_r:vendor_zte_prop:s0
 ro.vendor.product.ztename    u:object_r:vendor_zte_prop:s0
 ro.vendor.feature.           u:object_r:vendor_zte_prop:s0
