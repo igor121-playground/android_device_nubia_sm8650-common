@@ -51,7 +51,7 @@ TARGET_BOOTLOADER_BOARD_NAME := pineapple
 TARGET_NO_BOOTLOADER := true
 
 # Camera
-TARGET_CAMERA_SERVICE_EXT_LIB := //$(COMMON_PATH):libcameraservice_extension.nubia_sm8650
+#TARGET_CAMERA_SERVICE_EXT_LIB := //$(COMMON_PATH):libcameraservice_extension.nubia_sm8650
 
 # Display
 TARGET_SCREEN_DENSITY := 480
