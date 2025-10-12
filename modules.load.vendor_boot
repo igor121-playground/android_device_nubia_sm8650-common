@@ -94,3 +94,4 @@ tmecom-intf.ko
 ufs_qcom.ko
 ufshcd-crypto-qti.ko
 videocc-pineapple.ko
+dcvs_boost.ko
