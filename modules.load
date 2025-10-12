@@ -256,3 +256,4 @@ zte_fingerprint.ko
 zte_led.ko
 zte_misc.ko
 zte_power_supply.ko
+dcvs_boost.ko
