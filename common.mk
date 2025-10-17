@@ -136,6 +136,22 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.sm8650
 
+# GNSS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss-aidl-service-qti \
+    android.hardware.gnss-aidl-impl-qti
+
+PRODUCT_PACKAGES += \
+    libbatching \
+    libgeofencing \
+    libgnss
+
+PRODUCT_PACKAGES += \
+    batching.conf \
+    gnss_antenna_info.conf \
+    gps.conf \
+    izat.conf
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
