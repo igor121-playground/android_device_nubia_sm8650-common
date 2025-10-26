@@ -119,9 +119,9 @@ PRODUCT_PACKAGES += \
 
 
 # DisplayFeatures
-#PRODUCT_PACKAGES += \
-#    DisplayFeatures \
-#    DisplayFeaturesNubia
+PRODUCT_PACKAGES += \
+    DisplayFeatures \
+    DisplayFeaturesNubia
 
 # DRM
 PRODUCT_PACKAGES += \
