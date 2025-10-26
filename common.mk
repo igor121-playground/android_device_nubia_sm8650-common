@@ -20,6 +20,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
+# NubiaParts
+$(call inherit-product, packages/apps/NubiaParts/config.mk)
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -193,6 +196,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     Tag
+
+# NubiaParts
+PRODUCT_PACKAGES += \
+    NubiaPowerUtils
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
