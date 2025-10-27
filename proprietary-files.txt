@@ -1,4 +1,5 @@
-# Extracted from NebulaOS
+# All unpinned blobs below are extracted from NebulaAIOS1.0.24_NX721J_V
+# dada: dada-user 16 BP2A.250605.015 OS2.0.217.0.WOCMIXM release-keys
 
 # ACDB
 vendor/etc/acdbdata/ffv_models/ffv__5.0.1_0.1__3.0.0_0.0__eai_2.10_enpu3.pmd
