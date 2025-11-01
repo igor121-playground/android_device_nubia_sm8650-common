@@ -74,7 +74,7 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'vendor/etc/media_codecs_pineapple.xml': blob_fixup()
-        .regex_replace('.*media_codecs_(google_audio|google_telephony).*\n', ''),
+        .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony).*\n', ''),
     'vendor/lib64/libcamximageformatutils.so': blob_fixup()
         .remove_needed('android.hardware.graphics.allocator-V1-ndk.so'),
     (
