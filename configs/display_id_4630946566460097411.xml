@@ -255,17 +255,12 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
     <transitionPoint>0.85</transitionPoint>
     <minimumHdrPercentOfScreen>0.1</minimumHdrPercentOfScreen>
 
-    <minimumLux>10000</minimumLux>
+    <minimumLux>4500</minimumLux>
     <timing>
       <timeWindowSecs>1800</timeWindowSecs>  // Window in which we restrict HBM.
       <timeMaxSecs>300</timeMaxSecs>         // Maximum time of HBM allowed in that window.
       <timeMinSecs>60</timeMinSecs>          // Minimum time remaining required to switch
     </timing>                                //   HBM on for.
   </highBrightnessMode>
-
-  <screenBrightnessRampFastDecrease>0.01</screenBrightnessRampFastDecrease>
-  <screenBrightnessRampFastIncrease>0.02</screenBrightnessRampFastIncrease>
-  <screenBrightnessRampIncreaseMaxMillis>2000</screenBrightnessRampIncreaseMaxMillis>
-  <screenBrightnessRampDecreaseMaxMillis>3000</screenBrightnessRampDecreaseMaxMillis>
 
 </displayConfiguration>
