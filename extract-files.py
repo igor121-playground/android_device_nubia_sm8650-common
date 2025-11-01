@@ -125,8 +125,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcodec2_shim.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
-    'vendor/lib64/libril-db.so': blob_fixup()
-        .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
     'vendor/lib64/libNubiaImageAlgorithmVD.so': blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_describe')
