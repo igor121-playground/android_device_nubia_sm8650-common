@@ -1683,6 +1683,9 @@ vendor/etc/sensors/config/sns_transport_ppe.json
 vendor/etc/sensors/config/sns_wrist_pedo.json
 vendor/etc/sensors/sns_reg_config
 
+# TinyXML2
+system/lib64/libtinyxml2.so:vendor/lib64/libtinyxml2_stock.so;FIX_SONAME
+
 # TFTP
 vendor/bin/tftp_server
 vendor/etc/init/vendor.qti.tftp.rc

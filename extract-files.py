@@ -155,6 +155,14 @@ blob_fixups: blob_fixups_user_type = {
     'libtensorflowlite_c.so',
     'libtensorflowlite_c_vendor.so',
     ),
+    (
+    'vendor/lib64/libdpps.so',
+    'vendor/lib64/libsnapdragoncolor-manager.so',
+    'vendor/bin/qvrdatauploader',
+    ): blob_fixup().replace_needed(
+    'libtinyxml2.so',
+    'libtinyxml2_stock.so',
+    ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
