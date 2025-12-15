@@ -147,6 +147,14 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libbinder_shim.so'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .add_needed('libaudioclient_shim.so'),
+    (
+    'vendor/lib64/libcapiv2uvvendor.so',
+    'vendor/lib64/liblistensoundmodel2vendor.so',
+    'vendor/lib64/libVoiceSdk.so',
+    ): blob_fixup().replace_needed(
+    'libtensorflowlite_c.so',
+    'libtensorflowlite_c_vendor.so',
+    ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
