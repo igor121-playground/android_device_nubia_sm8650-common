@@ -54,6 +54,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Display
 TARGET_SCREEN_DENSITY := 460
+$(call soong_config_set_bool,qtidisplay,legacy_pphwresourceinfo,true)
 
 # DTB / DTBO
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
