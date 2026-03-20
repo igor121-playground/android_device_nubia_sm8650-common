@@ -24,4 +24,7 @@
     -->
     <integer name="config_vibration_supported_intensity_levels">3</integer>
 
+    <!-- Show high touch polling rate -->
+    <bool name="config_supportHighTouchRate">true</bool>
+
 </resources>

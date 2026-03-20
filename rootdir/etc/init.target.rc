@@ -274,3 +274,21 @@ on property:sys.boot_completed=1
      # Enable PowerHAL hint processing
      setprop vendor.powerhal.init 1
 
+on property:debug.high_touch_rate=1
+    setprop persist.vendor.high_touch_rate 1
+    write /sys/devices/platform/goodix_ts.0/rate_boost 1
+    write /sys/devices/platform/goodix_ts.0/rate_boost 1
+
+on property:debug.high_touch_rate=0
+    setprop persist.vendor.high_touch_rate 0
+    write /sys/devices/platform/goodix_ts.0/rate_boost 0
+    write /sys/devices/platform/goodix_ts.0/rate_boost 0
+
+# persist properties for restoring from boot
+on property:persist.vendor.high_touch_rate=1 && property:vendor.post_boot.parsed=1
+    write /sys/devices/platform/goodix_ts.0/rate_boost 1
+    write /sys/devices/platform/goodix_ts.0/rate_boost 1
+
+on property:persist.vendor.high_touch_rate=0 && property:vendor.post_boot.parsed=1
+    write /sys/devices/platform/goodix_ts.0/rate_boost 0
+    write /sys/devices/platform/goodix_ts.0/rate_boost 0
