@@ -1,4 +1,4 @@
-
+]
 # Copyright (c) 2019-2021, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -239,7 +239,6 @@ on property:vendor.post_boot.parsed=1
     # Uclamp tunings
     setprop kernel.sched_util_clamp_min_rt_default 0
     write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
-    write /proc/sys/kernel/sched_util_clamp_min 128
 
     #top-app
     write /dev/cpuctl/top-app/cpu.uclamp.max max
@@ -247,7 +246,7 @@ on property:vendor.post_boot.parsed=1
     write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 0
 
     #foreground
-    write /dev/cpuctl/foreground/cpu.uclamp.max 80
+    write /dev/cpuctl/foreground/cpu.uclamp.max max
     write /dev/cpuctl/foreground/cpu.uclamp.min 0
     write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
 
@@ -263,13 +262,13 @@ on property:vendor.post_boot.parsed=1
 
     #nnapi-hal
     write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
-    write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 75
-    write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 0
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 0
 
     #camera-daemon
     write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
-    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 50
-    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 0
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
 
 on property:sys.boot_completed=1
      # Enable PowerHAL hint processing
