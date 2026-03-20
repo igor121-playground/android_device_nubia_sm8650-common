@@ -181,6 +181,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.nubia
 
+# Kernel
+PRODUCT_ENABLE_UFFD_GC := true
+
 # Linker config
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(COMMON_PATH)/linker.config.json
