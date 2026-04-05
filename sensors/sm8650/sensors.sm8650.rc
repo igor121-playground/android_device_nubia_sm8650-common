@@ -6,3 +6,4 @@ on post-fs
     chown system system /sys/devices/platform/goodix_ts.0/gesture/fod_en
     chown system system /sys/devices/platform/goodix_ts.0/gesture/fod_pressed
     chown system system /sys/devices/platform/goodix_ts.0/rotation
+    chown system system /sys/devices/platform/goodix_ts.0/rate_boost
