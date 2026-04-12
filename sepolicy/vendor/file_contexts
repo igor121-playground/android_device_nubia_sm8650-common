@@ -28,3 +28,7 @@
 
 # Secure Element
 /vendor/bin/hw/android\.hardware\.secure_element-service-aidl    u:object_r:hal_secure_element_default_exec:s0
+
+# Vibrator
+/dev/awinic_haptic                                                              u:object_r:aac_richtap_device:s0
+/vendor/bin/hw/android\.hardware\.vibrator\.service\.nubia_sm8650\.richtap     u:object_r:hal_vibrator_default_exec:s0

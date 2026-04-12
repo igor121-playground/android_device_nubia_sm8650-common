@@ -1704,6 +1704,9 @@ vendor/lib64/libGPMTEEC_vendor.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
+# Vibrator
+vendor/lib64/libaacvibrator.so|ee70d7b3748a6def445b7aab4deb8f433e603b92
+
 # VM
 vendor/bin/vmmgr
 vendor/etc/init/vmmgr.rc
