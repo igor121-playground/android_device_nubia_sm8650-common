@@ -206,6 +206,7 @@ PRODUCT_PACKAGES += \
 
 # NubiaParts
 PRODUCT_PACKAGES += \
+    NubiaGameSwitch \
     NubiaPowerUtils
 
 # Overlays
