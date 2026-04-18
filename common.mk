@@ -110,6 +110,7 @@ TARGET_ENABLE_BLUR := true
 
 # Camera
 $(call soong_config_set,camera,override_format_from_reserved,true)
+$(call soong_config_set,cameraservice,bypass_pixelmode,true)
 
 # Display
 PRODUCT_PACKAGES += \
