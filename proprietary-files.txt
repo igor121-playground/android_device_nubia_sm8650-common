@@ -1738,7 +1738,7 @@ vendor/lib64/libubwcp.so
 vendor/apex/com.google.android.widevine.nonupdatable.apex
 vendor/bin/KmInstallKeybox
 vendor/etc/vintf/manifest/android.hardware.drm-service.xml
-vendor/lib64/liboemcrypto.so
+# vendor/lib64/liboemcrypto.so
 vendor/lib64/libtrustedapploader.so
 
 # WiFi
