@@ -132,6 +132,8 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/m
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
 
+TARGET_KERNEL_MODULES_IGNORE := kernelsu
+
 TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/mmrm-driver \
     qcom/opensource/mm-drivers/hw_fence \
