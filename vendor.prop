@@ -268,6 +268,9 @@ persist.vendor.sensors.enable.mag_filter=true
 # SoC
 ro.soc.manufacturer=QTI
 
+# SSR
+persist.vendor.ssr.restart_level=ALL_ENABLE
+
 # USB
 sys.usb.mtp.batchcancel=1
 vendor.usb.controller=a600000.dwc3
