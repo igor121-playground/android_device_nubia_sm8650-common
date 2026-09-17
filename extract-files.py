@@ -169,6 +169,10 @@ blob_fixups: blob_fixups_user_type = {
     'libprotobuf-cpp-full.so',
     'libprotobuf-cpp-full-21.7.so',
     ),
+    'system/framework/WfdCommon.jar': blob_fixup()
+        .apktool_patch('blob-patches/WfdCommon.patch'),
+    'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
